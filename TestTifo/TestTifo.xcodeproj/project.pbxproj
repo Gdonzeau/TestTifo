@@ -14,6 +14,7 @@
 		F0F41C91283D21780097F7A2 /* TestTifoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C90283D21780097F7A2 /* TestTifoTests.swift */; };
 		F0F41C9B283D21780097F7A2 /* TestTifoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C9A283D21780097F7A2 /* TestTifoUITests.swift */; };
 		F0F41C9D283D21780097F7A2 /* TestTifoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C9C283D21780097F7A2 /* TestTifoUITestsLaunchTests.swift */; };
+		F0F41CB1283D87820097F7A2 /* DataReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CB0283D87820097F7A2 /* DataReceived.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		F0F41C96283D21780097F7A2 /* TestTifoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTifoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F41C9A283D21780097F7A2 /* TestTifoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTifoUITests.swift; sourceTree = "<group>"; };
 		F0F41C9C283D21780097F7A2 /* TestTifoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTifoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F0F41CB0283D87820097F7A2 /* DataReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReceived.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				F0F41C7F283D21720097F7A2 /* TestTifoApp.swift */,
 				F0F41C81283D21720097F7A2 /* ContentView.swift */,
+				F0F41CB0283D87820097F7A2 /* DataReceived.swift */,
 				F0F41C83283D21770097F7A2 /* Assets.xcassets */,
 				F0F41C85283D21770097F7A2 /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				F0F41C82283D21720097F7A2 /* ContentView.swift in Sources */,
 				F0F41C80283D21720097F7A2 /* TestTifoApp.swift in Sources */,
+				F0F41CB1283D87820097F7A2 /* DataReceived.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

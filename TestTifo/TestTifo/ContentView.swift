@@ -8,70 +8,69 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var resultsOfSearch = [repo]()
     @State private var search = ""
-    //@State private var answers = [repo]()
+    
+    let choices: [String:Choice] = Bundle.main.decode("choices.json")
+    @State private var indexSearch: IndexSearch = .repositories
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    LazyVStack(alignment: .leading) {
-                        if resultsOfSearch.count > 0 {
-                            ForEach(resultsOfSearch, id: \.url) { answer in
-                                
-                                Image(systemName: "\(answer).circle")
-                                Text(answer.url)
-                            }
-                        } else {
-                            Text("Waiting for a search")
-                        }
+            
+            let keys = choices.map{$0.key}
+            let values = choices.map {$0.value}
+            
+            if search.count > 0 {
+                List(keys.indices, id: \.self) { index in
+                    
+                    NavigationLink {
+                        ResultSearch(search: search, typeOfSearch: values[index].id)
+                    } label: {
+                        Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
+                            .padding()
                     }
                 }
+                .navigationTitle("GitHub fetcher")
+                .navigationBarTitleDisplayMode(.inline)
+                
+            } else {
+                List {
+                    HStack {
+                        Image(systemName: "arrow.down")
+                        Spacer()
+                        Text("Swipe down for a search")
+                        Spacer()
+                        Image(systemName: "arrow.down")
+                    }
+                }
+                .navigationTitle("GitHub fetcher")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .searchable(text: $search, prompt: "Enter your query")
-            .navigationTitle("GitHub fetcher")
-            .navigationBarTitleDisplayMode(.inline)
-            
         }
-        .onSubmit(of: .search, loadRepos) // When Enter is tapped
+        .searchable(text: $search, prompt: "Enter your query")
         .preferredColorScheme(.light)
         .navigationViewStyle(StackNavigationViewStyle()) // Plus de problèmes de contraintes
     }
     
-    func loadRepos() {
+    func determineIndexSearch(index: String) -> IndexSearch {
         
-        guard let url = URL(string: "https://api.github.com/search/commits?q=\(search)") else {
-            print("Invalid URL.")
-            return
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { (data, response, error) in
+        switch index {
+        case "commits" :
+            indexSearch = .commits
             
-            if let data = data, error == nil {
-                
-                if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                    print("Decode")
-                    
-                    if let decodeResponse = try? JSONDecoder().decode(DataReceived.self, from: data) {
-                        let repos = decodeResponse.total_count
-                        let responses = decodeResponse.items
-                        resultsOfSearch = responses
-                        
-                    } else {
-                        print("Echec")
-                    }
-                }
-            }
+        case "repositories" :
+            indexSearch = .repositories
+            
+        case "users" :
+            indexSearch = .users
+            
+        default:
+            indexSearch = .commits
         }
-        task.resume()
+        return indexSearch
     }
-    
 }
 
-struct TestTifo_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }

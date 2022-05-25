@@ -1,0 +1,17 @@
+{
+    "commit": {
+        "id": "commits",
+        "name": "Commits",
+        "description": "folder"
+    },
+    "repository": {
+        "id": "repositories",
+        "name": "Repositories",
+        "description": "text.book.closed"
+    },
+    "user": {
+        "id": "users",
+        "name": "Users",
+        "description": "person"
+    }
+}

@@ -14,7 +14,15 @@
 		F0F41C91283D21780097F7A2 /* TestTifoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C90283D21780097F7A2 /* TestTifoTests.swift */; };
 		F0F41C9B283D21780097F7A2 /* TestTifoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C9A283D21780097F7A2 /* TestTifoUITests.swift */; };
 		F0F41C9D283D21780097F7A2 /* TestTifoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C9C283D21780097F7A2 /* TestTifoUITestsLaunchTests.swift */; };
-		F0F41CB1283D87820097F7A2 /* DataReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CB0283D87820097F7A2 /* DataReceived.swift */; };
+		F0F41CB1283D87820097F7A2 /* DataTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CB0283D87820097F7A2 /* DataTemplate.swift */; };
+		F0F41CC7283ED7800097F7A2 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CC6283ED7800097F7A2 /* Choice.swift */; };
+		F0F41CC9283ED7F10097F7A2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CC8283ED7F10097F7A2 /* Bundle-Decodable.swift */; };
+		F0F41CCB283ED85D0097F7A2 /* choices.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CCA283ED85D0097F7A2 /* choices.json */; };
+		F0F41CCD283ED9440097F7A2 /* ResultSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */; };
+		F0F41CCF283EDC440097F7A2 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CCE283EDC440097F7A2 /* UserView.swift */; };
+		F0F41CD4283EDDDC0097F7A2 /* commits.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD1283EDDDC0097F7A2 /* commits.json */; };
+		F0F41CD5283EDDDC0097F7A2 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD2283EDDDC0097F7A2 /* users.json */; };
+		F0F41CD6283EDDDC0097F7A2 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD3283EDDDC0097F7A2 /* repositories.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +53,15 @@
 		F0F41C96283D21780097F7A2 /* TestTifoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTifoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F41C9A283D21780097F7A2 /* TestTifoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTifoUITests.swift; sourceTree = "<group>"; };
 		F0F41C9C283D21780097F7A2 /* TestTifoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTifoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F0F41CB0283D87820097F7A2 /* DataReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReceived.swift; sourceTree = "<group>"; };
+		F0F41CB0283D87820097F7A2 /* DataTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTemplate.swift; sourceTree = "<group>"; };
+		F0F41CC6283ED7800097F7A2 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		F0F41CC8283ED7F10097F7A2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		F0F41CCA283ED85D0097F7A2 /* choices.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = choices.json; sourceTree = "<group>"; };
+		F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchView.swift; sourceTree = "<group>"; };
+		F0F41CCE283EDC440097F7A2 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		F0F41CD1283EDDDC0097F7A2 /* commits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = commits.json; sourceTree = "<group>"; };
+		F0F41CD2283EDDDC0097F7A2 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		F0F41CD3283EDDDC0097F7A2 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repositories.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +112,12 @@
 		F0F41C7E283D21720097F7A2 /* TestTifo */ = {
 			isa = PBXGroup;
 			children = (
+				F0F41CD0283EDDDC0097F7A2 /* Files json test */,
+				F0F41CC5283ED74A0097F7A2 /* Data */,
 				F0F41C7F283D21720097F7A2 /* TestTifoApp.swift */,
 				F0F41C81283D21720097F7A2 /* ContentView.swift */,
-				F0F41CB0283D87820097F7A2 /* DataReceived.swift */,
+				F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */,
+				F0F41CCE283EDC440097F7A2 /* UserView.swift */,
 				F0F41C83283D21770097F7A2 /* Assets.xcassets */,
 				F0F41C85283D21770097F7A2 /* Preview Content */,
 			);
@@ -128,6 +147,27 @@
 				F0F41C9C283D21780097F7A2 /* TestTifoUITestsLaunchTests.swift */,
 			);
 			path = TestTifoUITests;
+			sourceTree = "<group>";
+		};
+		F0F41CC5283ED74A0097F7A2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F0F41CB0283D87820097F7A2 /* DataTemplate.swift */,
+				F0F41CCA283ED85D0097F7A2 /* choices.json */,
+				F0F41CC6283ED7800097F7A2 /* Choice.swift */,
+				F0F41CC8283ED7F10097F7A2 /* Bundle-Decodable.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F0F41CD0283EDDDC0097F7A2 /* Files json test */ = {
+			isa = PBXGroup;
+			children = (
+				F0F41CD1283EDDDC0097F7A2 /* commits.json */,
+				F0F41CD2283EDDDC0097F7A2 /* users.json */,
+				F0F41CD3283EDDDC0097F7A2 /* repositories.json */,
+			);
+			path = "Files json test";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +274,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F41CD5283EDDDC0097F7A2 /* users.json in Resources */,
+				F0F41CD4283EDDDC0097F7A2 /* commits.json in Resources */,
 				F0F41C87283D21770097F7A2 /* Preview Assets.xcassets in Resources */,
+				F0F41CCB283ED85D0097F7A2 /* choices.json in Resources */,
 				F0F41C84283D21770097F7A2 /* Assets.xcassets in Resources */,
+				F0F41CD6283EDDDC0097F7A2 /* repositories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +306,11 @@
 			files = (
 				F0F41C82283D21720097F7A2 /* ContentView.swift in Sources */,
 				F0F41C80283D21720097F7A2 /* TestTifoApp.swift in Sources */,
-				F0F41CB1283D87820097F7A2 /* DataReceived.swift in Sources */,
+				F0F41CC9283ED7F10097F7A2 /* Bundle-Decodable.swift in Sources */,
+				F0F41CC7283ED7800097F7A2 /* Choice.swift in Sources */,
+				F0F41CB1283D87820097F7A2 /* DataTemplate.swift in Sources */,
+				F0F41CCD283ED9440097F7A2 /* ResultSearchView.swift in Sources */,
+				F0F41CCF283EDC440097F7A2 /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

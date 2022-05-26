@@ -23,6 +23,8 @@
 		F0F41CD4283EDDDC0097F7A2 /* commits.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD1283EDDDC0097F7A2 /* commits.json */; };
 		F0F41CD5283EDDDC0097F7A2 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD2283EDDDC0097F7A2 /* users.json */; };
 		F0F41CD6283EDDDC0097F7A2 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD3283EDDDC0097F7A2 /* repositories.json */; };
+		F0F41CD8283FAFF70097F7A2 /* usersCompleted.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD7283FAFF70097F7A2 /* usersCompleted.json */; };
+		F0F41CDA283FDCD90097F7A2 /* ContentViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CD9283FDCD80097F7A2 /* ContentViewInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		F0F41CD1283EDDDC0097F7A2 /* commits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = commits.json; sourceTree = "<group>"; };
 		F0F41CD2283EDDDC0097F7A2 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		F0F41CD3283EDDDC0097F7A2 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repositories.json; sourceTree = "<group>"; };
+		F0F41CD7283FAFF70097F7A2 /* usersCompleted.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = usersCompleted.json; sourceTree = "<group>"; };
+		F0F41CD9283FDCD80097F7A2 /* ContentViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				F0F41CC5283ED74A0097F7A2 /* Data */,
 				F0F41C7F283D21720097F7A2 /* TestTifoApp.swift */,
 				F0F41C81283D21720097F7A2 /* ContentView.swift */,
+				F0F41CD9283FDCD80097F7A2 /* ContentViewInfo.swift */,
 				F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */,
 				F0F41CCE283EDC440097F7A2 /* UserView.swift */,
 				F0F41C83283D21770097F7A2 /* Assets.xcassets */,
@@ -166,6 +171,7 @@
 				F0F41CD1283EDDDC0097F7A2 /* commits.json */,
 				F0F41CD2283EDDDC0097F7A2 /* users.json */,
 				F0F41CD3283EDDDC0097F7A2 /* repositories.json */,
+				F0F41CD7283FAFF70097F7A2 /* usersCompleted.json */,
 			);
 			path = "Files json test";
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0F41CD5283EDDDC0097F7A2 /* users.json in Resources */,
+				F0F41CD8283FAFF70097F7A2 /* usersCompleted.json in Resources */,
 				F0F41CD4283EDDDC0097F7A2 /* commits.json in Resources */,
 				F0F41C87283D21770097F7A2 /* Preview Assets.xcassets in Resources */,
 				F0F41CCB283ED85D0097F7A2 /* choices.json in Resources */,
@@ -306,6 +313,7 @@
 			files = (
 				F0F41C82283D21720097F7A2 /* ContentView.swift in Sources */,
 				F0F41C80283D21720097F7A2 /* TestTifoApp.swift in Sources */,
+				F0F41CDA283FDCD90097F7A2 /* ContentViewInfo.swift in Sources */,
 				F0F41CC9283ED7F10097F7A2 /* Bundle-Decodable.swift in Sources */,
 				F0F41CC7283ED7800097F7A2 /* Choice.swift in Sources */,
 				F0F41CB1283D87820097F7A2 /* DataTemplate.swift in Sources */,

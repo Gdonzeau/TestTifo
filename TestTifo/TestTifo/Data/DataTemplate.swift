@@ -51,4 +51,16 @@ struct User: Codable {
     var login: String
     var id: Int
     var avatar_url: String
+    var url: String
+}
+
+struct UserCompleted: Codable {
+    var login: String?
+    var avatar_url: String?
+    var name: String?
+    var bio: String?
+    var company: String?
+    var blog: String?
+    var location: String?
+    var public_repos: Int?
 }

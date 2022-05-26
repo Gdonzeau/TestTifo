@@ -13,6 +13,12 @@ struct ResultSearch: View {
     @State private var resultOfSearchUsers = [User]()
     @State private var resultOfSearchRepos = [DataRepository]()
     @State private var howManyAnswers:Int?
+    
+    // Pour générer un message d'erreur
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
+    @State private var showingError = false
+    
     let search: String
     let typeOfSearch: String
     @State private var indexSearch: IndexSearch = .commits
@@ -81,6 +87,11 @@ struct ResultSearch: View {
                 .navigationTitle("Searching \(typeOfSearch)")
                 .navigationBarTitleDisplayMode(.inline)
             }
+            .alert(errorTitle, isPresented: $showingError) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(errorMessage)
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle()) // Plus de problèmes de contraintes
         .task {
@@ -107,10 +118,21 @@ struct ResultSearch: View {
         return indexSearch
     }
     
+    func alertError(title: String, message: String) {
+        errorTitle = title
+        errorMessage = message
+        showingError = true
+    }
+    
     func loadRepos() async {
+        // On convertit l'entrée au bon format
+        guard let search = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            alertError(title: "Conflit de caratères", message: "Veuillez des caractères corrects")
+            return
+        }
         // On vérifie l'url
         guard let url = URL(string: "https://api.github.com/search/\(typeOfSearch)?q=\(search)") else {
-            print("Invalid URL.")
+            alertError(title: "URL invalide", message: "Contactez le service technique")
             return
         }
         // Puis on prépare la requête
@@ -119,52 +141,54 @@ struct ResultSearch: View {
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { (data, response, error) in
             
-            if let data = data, error == nil {
-                // Si la réponse est bonne...
-                if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                    // On adapte le bon type de format pour la réponse en fonction de ce qui a été demandé
-                    switch indexSearch {
-
-                    case .commits:
-                        
-                        if let decodeResponse = try? JSONDecoder().decode(DataReceivedCommit.self, from: data) {
-                            let numberOfAnswers = decodeResponse.total_count
-                            let responses = decodeResponse.items
-                            resultsOfSearch = responses
-                            howManyAnswers = numberOfAnswers
-                            
-                        } else {
-                            print("Echec")
-                        }
-                        
-                    case .repositories:
-                        
-                        if let decodeResponse = try? JSONDecoder().decode(DataReceivedRepository.self, from: data) {
-                            print("ok")
-                            let numberOfAnswers = decodeResponse.total_count
-                            let responses = decodeResponse.items
-                            resultOfSearchRepos = responses
-                            howManyAnswers = numberOfAnswers
-                            print("Trouvés : \(numberOfAnswers)")
-                            
-                        } else {
-                            print("Echec")
-                        }
-                        
-                    case .users:
-                        
-                        if let decodeResponse = try? JSONDecoder().decode(DataReceivedUser.self, from: data) {
-                            print("ok")
-                            let numberOfAnswers = decodeResponse.total_count
-                            let responses = decodeResponse.items
-                            resultOfSearchUsers = responses
-                            howManyAnswers = numberOfAnswers
-                            print("Trouvés : \(numberOfAnswers)")
-                            
-                        } else {
-                            print("Echec")
-                        }
-                    }
+            // Si la réponse est bonne...
+            guard let data = data, error == nil else {
+                alertError(title: "No Data", message: "Absence de données")
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                alertError(title: "Mauvaise réponse", message: "Erreur " )
+                return
+            }
+            // On adapte le bon type de format pour la réponse en fonction de ce qui a été demandé
+            switch indexSearch {
+                
+            case .commits:
+                
+                if let decodeResponse = try? JSONDecoder().decode(DataReceivedCommit.self, from: data) {
+                    let numberOfAnswers = decodeResponse.total_count
+                    let responses = decodeResponse.items
+                    resultsOfSearch = responses
+                    howManyAnswers = numberOfAnswers
+                    
+                } else {
+                    alertError(title: "Problème de données", message: "Le masque des données de commit ne correspond pas." )
+                }
+                
+            case .repositories:
+                
+                if let decodeResponse = try? JSONDecoder().decode(DataReceivedRepository.self, from: data) {
+                    let numberOfAnswers = decodeResponse.total_count
+                    let responses = decodeResponse.items
+                    resultOfSearchRepos = responses
+                    howManyAnswers = numberOfAnswers
+                    
+                } else {
+                    alertError(title: "Problème de données", message: "Le masque des données de repository ne correspond pas." )
+                }
+                
+            case .users:
+                
+                if let decodeResponse = try? JSONDecoder().decode(DataReceivedUser.self, from: data) {
+                    let numberOfAnswers = decodeResponse.total_count
+                    let responses = decodeResponse.items
+                    resultOfSearchUsers = responses
+                    howManyAnswers = numberOfAnswers
+                    print("Trouvés : \(numberOfAnswers)")
+                    
+                } else {
+                    alertError(title: "Problème de données", message: "Le masque des données de user ne correspond pas." )
                 }
             }
         }

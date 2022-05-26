@@ -15,36 +15,34 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            
-            let keys = choices.map{$0.key}
-            let values = choices.map {$0.value}
-            
-            if search.count > 0 {
-                List(keys.indices, id: \.self) { index in
-                    
-                    NavigationLink {
-                        ResultSearch(search: search, typeOfSearch: values[index].id)
-                    } label: {
-                        Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
-                            .padding()
-                    }
-                }
-                .navigationTitle("GitHub fetcher")
-                .navigationBarTitleDisplayMode(.inline)
+            VStack {
+                let keys = choices.map{$0.key}
+                let values = choices.map {$0.value}
                 
-            } else {
-                List {
-                    HStack {
-                        Image(systemName: "arrow.down")
-                        Spacer()
-                        Text("Swipe down for a search")
-                        Spacer()
-                        Image(systemName: "arrow.down")
+                if search.count > 0 {
+                    List(keys.indices, id: \.self) { index in
+                        
+                        NavigationLink {
+                            ResultSearch(search: search, typeOfSearch: values[index].id)
+                        } label: {
+                            Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
+                                .padding()
+                        }
+                    }
+                } else {
+                    List {
+                        HStack {
+                            Image(systemName: "arrow.down")
+                            Spacer()
+                            Text("Swipe down for a search")
+                            Spacer()
+                            Image(systemName: "arrow.down")
+                        }
                     }
                 }
-                .navigationTitle("GitHub fetcher")
-                .navigationBarTitleDisplayMode(.inline)
             }
+            .navigationTitle("GitHub fetcher")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .searchable(text: $search, prompt: "Enter your query")
         .preferredColorScheme(.light)

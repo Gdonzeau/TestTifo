@@ -45,13 +45,17 @@ struct DataAuthor: Codable {
 struct DataRepository: Codable {
     var id: Int
     var name: String
+    var description: String?
+    var owner: User?
+    var stargazers_count: Int?
+    var language: String?
 }
 
 struct User: Codable {
-    var login: String
-    var id: Int
-    var avatar_url: String
-    var url: String
+    var login: String?
+    var id: Int?
+    var avatar_url: String?
+    var url: String?
 }
 
 struct UserCompleted: Codable {

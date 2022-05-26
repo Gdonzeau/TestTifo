@@ -1,13 +1,14 @@
 //
-//  UserView.swift
+//  ContentViewUser.swift
 //  TestTifo
 //
 //  Created by Guillaume on 25/05/2022.
 //
+// Affichage de la page d'un utilisateur
 
 import SwiftUI
 
-struct UserView: View {
+struct ContentViewUser: View {
     let userLogin: String
     // Pour générer un message d'erreur
     @State private var errorTitle = ""
@@ -72,7 +73,10 @@ struct UserView: View {
                 
                 if let repos = user.public_repos {
                     NavigationLink {
-                        Text("Repositories")
+                        if let login = user.login {
+                        ResultSearch(search: login, general: false, typeOfSearch: "specificRepositories")
+                        }
+                        //Text("Repositories")
                     } label: {
                         HStack {
                             Image(systemName: "text.book.closed")
@@ -167,11 +171,11 @@ struct UserView: View {
     }
 }
 
-struct UserView_Previews: PreviewProvider {
+struct ContentViewUser_Previews: PreviewProvider {
     static let utilisateur = User(login: "Logan", id: 007, avatar_url: "www.photoDeMoi.png", url: "")
     static let user = UserCompleted(login: "Logan", avatar_url: "Ici", name: "Mon nom", bio: "Ma vie")
     
     static var previews: some View {
-        UserView(userLogin: "")
+        ContentViewUser(userLogin: "")
     }
 }

@@ -9,6 +9,11 @@
         "name": "Repositories",
         "description": "text.book.closed"
     },
+    "specificRepository": {
+        "id": "specificRepositories",
+        "name": "Specific repositories",
+        "description": "text.book.closed"
+    },
     "user": {
         "id": "users",
         "name": "Users",

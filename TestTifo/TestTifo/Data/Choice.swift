@@ -17,5 +17,6 @@ struct Choice: Codable, Identifiable {
 enum IndexSearch {
     case commits
     case repositories
+    case specificRepositories
     case users
 }

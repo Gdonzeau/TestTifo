@@ -19,8 +19,9 @@ struct ResultSearch: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
-    let search: String
-    let typeOfSearch: String
+    let search: String // Message de recherche
+    let general: Bool
+    let typeOfSearch: String // Recherche de repos, de user ?
     @State private var indexSearch: IndexSearch = .commits
     
     var body: some View {
@@ -36,35 +37,11 @@ struct ResultSearch: View {
                         }
                         
                         ForEach(resultOfSearchUsers, id: \.login) { answer in
-                            VStack {
-                                NavigationLink {
-                                    UserView(userLogin: answer.login)
-                                } label: {
-                                    HStack {
-                                        if let url = URL(string: answer.avatar_url) {
-                                            AsyncImage(url: url) { image in
-                                                image.resizable()
-                                            } placeholder: {
-                                                ProgressView("Please wait ...")
-                                            }
-                                            .scaledToFit()
-                                            .frame(width: 50, height: 50)
-                                            .clipShape(Circle())
-                                        }
-                                        Spacer()
-                                        Text(answer.login)
-                                    }
-                                }
-                                .padding()
-                                Divider()
-                            }
+                            ContentViewUsers(answer: answer)
                         }
                         
                         ForEach(resultOfSearchRepos, id: \.name) { answer in
-                            
-                            Text(answer.name)
-                                .padding()
-                            Divider()
+                            ContentViewRepos(answer: answer)
                         }
                     } else {
                         Text("No answer")
@@ -94,7 +71,7 @@ struct ResultSearch: View {
         .navigationViewStyle(StackNavigationViewStyle()) // Plus de problèmes de contraintes
         .task {
             indexSearch = determineIndexSearch(index: typeOfSearch)
-            await loadRepos()
+            await loadRepos(general: general)
         }
     }
     
@@ -106,6 +83,9 @@ struct ResultSearch: View {
             
         case "repositories" :
             indexSearch = .repositories
+            
+        case "specificRepositories" :
+            indexSearch = .specificRepositories
             
         case "users" :
             indexSearch = .users
@@ -122,15 +102,21 @@ struct ResultSearch: View {
         showingError = true
     }
     
-    func loadRepos() async {
+    func loadRepos(general:Bool) async {
+        // General
+        // true : on peut chercher soit des repos, soit des users
+        // false : on chercher les repos d'un user concret (dans search)
         // On convertit l'entrée au bon format
         guard let search = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             alertError(title: "Conflit de caratères", message: "Veuillez des caractères corrects")
             return
         }
-        
-        let urlBase = "https://api.github.com/search/\(typeOfSearch)?q=\(search)"
-        
+        var urlBase = ""
+        if general {
+        urlBase = "https://api.github.com/search/\(typeOfSearch)?q=\(search)"
+        } else {
+            urlBase = "https://api.github.com/users/\(search)/repos"
+        }
         // On vérifie l'url
         guard let url = URL(string: urlBase) else {
             alertError(title: "URL invalide", message: "Contactez le service technique")
@@ -180,6 +166,18 @@ struct ResultSearch: View {
                     alertError(title: "Problème de données", message: "Le masque des données de repository ne correspond pas." )
                 }
                 
+            case .specificRepositories:
+                
+                if let decodeResponse = try? JSONDecoder().decode([DataRepository].self, from: data) {
+                    let numberOfAnswers = decodeResponse.count
+                    let responses = decodeResponse
+                    resultOfSearchRepos = responses
+                    howManyAnswers = numberOfAnswers
+                    
+                } else {
+                    alertError(title: "Problème de données", message: "Le masque des données de repository ne correspond pas." )
+                }
+                
             case .users:
                 
                 if let decodeResponse = try? JSONDecoder().decode(DataReceivedUser.self, from: data) {
@@ -200,6 +198,6 @@ struct ResultSearch: View {
 
 struct ResultSearch_Previews: PreviewProvider {
     static var previews: some View {
-        ResultSearch(search: "Test", typeOfSearch: "commits")
+        ResultSearch(search: "Test", general: true, typeOfSearch: "commits")
     }
 }

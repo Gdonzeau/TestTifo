@@ -23,7 +23,7 @@ struct ContentView: View {
                     List(keys.indices, id: \.self) { index in
                         
                         NavigationLink {
-                            ResultSearch(search: search, typeOfSearch: values[index].id)
+                            ResultSearch(search: search, general: true, typeOfSearch: values[index].id)
                         } label: {
                             Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
                                 .padding()

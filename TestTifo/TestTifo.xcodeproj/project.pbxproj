@@ -19,12 +19,15 @@
 		F0F41CC9283ED7F10097F7A2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CC8283ED7F10097F7A2 /* Bundle-Decodable.swift */; };
 		F0F41CCB283ED85D0097F7A2 /* choices.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CCA283ED85D0097F7A2 /* choices.json */; };
 		F0F41CCD283ED9440097F7A2 /* ResultSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */; };
-		F0F41CCF283EDC440097F7A2 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CCE283EDC440097F7A2 /* UserView.swift */; };
+		F0F41CCF283EDC440097F7A2 /* ContentViewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CCE283EDC440097F7A2 /* ContentViewUser.swift */; };
 		F0F41CD4283EDDDC0097F7A2 /* commits.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD1283EDDDC0097F7A2 /* commits.json */; };
 		F0F41CD5283EDDDC0097F7A2 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD2283EDDDC0097F7A2 /* users.json */; };
 		F0F41CD6283EDDDC0097F7A2 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD3283EDDDC0097F7A2 /* repositories.json */; };
 		F0F41CD8283FAFF70097F7A2 /* usersCompleted.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CD7283FAFF70097F7A2 /* usersCompleted.json */; };
 		F0F41CDA283FDCD90097F7A2 /* ContentViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CD9283FDCD80097F7A2 /* ContentViewInfo.swift */; };
+		F0F41CDC28401E050097F7A2 /* ContentViewUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CDB28401E050097F7A2 /* ContentViewUsers.swift */; };
+		F0F41CDE28401FF10097F7A2 /* ContentViewRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41CDD28401FF10097F7A2 /* ContentViewRepos.swift */; };
+		F0F41CE0284027430097F7A2 /* reposFromSpecificalUser.json in Resources */ = {isa = PBXBuildFile; fileRef = F0F41CDF284027430097F7A2 /* reposFromSpecificalUser.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,12 +63,15 @@
 		F0F41CC8283ED7F10097F7A2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		F0F41CCA283ED85D0097F7A2 /* choices.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = choices.json; sourceTree = "<group>"; };
 		F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchView.swift; sourceTree = "<group>"; };
-		F0F41CCE283EDC440097F7A2 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		F0F41CCE283EDC440097F7A2 /* ContentViewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewUser.swift; sourceTree = "<group>"; };
 		F0F41CD1283EDDDC0097F7A2 /* commits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = commits.json; sourceTree = "<group>"; };
 		F0F41CD2283EDDDC0097F7A2 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		F0F41CD3283EDDDC0097F7A2 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repositories.json; sourceTree = "<group>"; };
 		F0F41CD7283FAFF70097F7A2 /* usersCompleted.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = usersCompleted.json; sourceTree = "<group>"; };
 		F0F41CD9283FDCD80097F7A2 /* ContentViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewInfo.swift; sourceTree = "<group>"; };
+		F0F41CDB28401E050097F7A2 /* ContentViewUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewUsers.swift; sourceTree = "<group>"; };
+		F0F41CDD28401FF10097F7A2 /* ContentViewRepos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewRepos.swift; sourceTree = "<group>"; };
+		F0F41CDF284027430097F7A2 /* reposFromSpecificalUser.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reposFromSpecificalUser.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +128,9 @@
 				F0F41C81283D21720097F7A2 /* ContentView.swift */,
 				F0F41CD9283FDCD80097F7A2 /* ContentViewInfo.swift */,
 				F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */,
-				F0F41CCE283EDC440097F7A2 /* UserView.swift */,
+				F0F41CDD28401FF10097F7A2 /* ContentViewRepos.swift */,
+				F0F41CDB28401E050097F7A2 /* ContentViewUsers.swift */,
+				F0F41CCE283EDC440097F7A2 /* ContentViewUser.swift */,
 				F0F41C83283D21770097F7A2 /* Assets.xcassets */,
 				F0F41C85283D21770097F7A2 /* Preview Content */,
 			);
@@ -171,6 +179,7 @@
 				F0F41CD1283EDDDC0097F7A2 /* commits.json */,
 				F0F41CD2283EDDDC0097F7A2 /* users.json */,
 				F0F41CD3283EDDDC0097F7A2 /* repositories.json */,
+				F0F41CDF284027430097F7A2 /* reposFromSpecificalUser.json */,
 				F0F41CD7283FAFF70097F7A2 /* usersCompleted.json */,
 			);
 			path = "Files json test";
@@ -283,6 +292,7 @@
 				F0F41CD5283EDDDC0097F7A2 /* users.json in Resources */,
 				F0F41CD8283FAFF70097F7A2 /* usersCompleted.json in Resources */,
 				F0F41CD4283EDDDC0097F7A2 /* commits.json in Resources */,
+				F0F41CE0284027430097F7A2 /* reposFromSpecificalUser.json in Resources */,
 				F0F41C87283D21770097F7A2 /* Preview Assets.xcassets in Resources */,
 				F0F41CCB283ED85D0097F7A2 /* choices.json in Resources */,
 				F0F41C84283D21770097F7A2 /* Assets.xcassets in Resources */,
@@ -312,13 +322,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0F41C82283D21720097F7A2 /* ContentView.swift in Sources */,
+				F0F41CDC28401E050097F7A2 /* ContentViewUsers.swift in Sources */,
 				F0F41C80283D21720097F7A2 /* TestTifoApp.swift in Sources */,
 				F0F41CDA283FDCD90097F7A2 /* ContentViewInfo.swift in Sources */,
 				F0F41CC9283ED7F10097F7A2 /* Bundle-Decodable.swift in Sources */,
 				F0F41CC7283ED7800097F7A2 /* Choice.swift in Sources */,
 				F0F41CB1283D87820097F7A2 /* DataTemplate.swift in Sources */,
 				F0F41CCD283ED9440097F7A2 /* ResultSearchView.swift in Sources */,
-				F0F41CCF283EDC440097F7A2 /* UserView.swift in Sources */,
+				F0F41CDE28401FF10097F7A2 /* ContentViewRepos.swift in Sources */,
+				F0F41CCF283EDC440097F7A2 /* ContentViewUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

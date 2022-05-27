@@ -32,8 +32,10 @@ struct Item: Codable {
 
 struct DataCommit: Codable {
     var url: String
-    var author: DataAuthor
-    var message: String
+    var sha: String
+    var author: DataAuthor?
+    var commiter: DataAuthor?
+    var message: String?
 }
 
 struct DataAuthor: Codable {
@@ -49,6 +51,7 @@ struct DataRepository: Codable {
     var owner: User?
     var stargazers_count: Int?
     var language: String?
+    var url: String?
 }
 
 struct User: Codable {
@@ -68,3 +71,22 @@ struct UserCompleted: Codable {
     var location: String?
     var public_repos: Int?
 }
+
+struct Branch: Codable {
+    var name: String
+    var commit: Commit
+}
+
+struct Commit: Codable {
+    var sha: String
+    var url: String
+    //Ensuite en optionnel pour double utilisation
+    var author:CommitterOrAuthor?
+    var committer:CommitterOrAuthor?
+}
+
+struct CommitterOrAuthor: Codable {
+    var login: String
+    var avatar_url: String?
+}
+

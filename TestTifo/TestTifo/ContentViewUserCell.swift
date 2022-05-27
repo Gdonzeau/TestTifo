@@ -1,5 +1,5 @@
 //
-//  ContentViewUsers.swift
+//  ContentViewUserCell.swift
 //  TestTifo
 //
 //  Created by Guillaume on 26/05/2022.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentViewUsers: View {
+struct ContentViewUserCell: View {
     let answer:User
     
     var body: some View {
@@ -18,6 +18,7 @@ struct ContentViewUsers: View {
                 ContentViewUser(userLogin: login)
                 }
             } label: {
+                VStack {
                 HStack {
                     if let avatar = answer.avatar_url {
                     if let url = URL(string: avatar) {
@@ -31,21 +32,31 @@ struct ContentViewUsers: View {
                         .clipShape(Circle())
                     }
                 }
-                    Spacer()
+                    
                     if let login = answer.login {
-                    Text(login)
+                        Text(login)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.black)
+                            .padding(.leading)
                     }
+                    Spacer()
+                }
+                Rectangle()
+                    .frame(height: 2)
+                    .foregroundColor(.lightBackground)
                 }
             }
-            .padding()
-            Divider()
+            .padding(.horizontal)
         }
     }
 }
 
 struct ContentViewUsers_Previews: PreviewProvider {
-    static let user = User()
+    
+    static var answers:DataReceivedUser = Bundle.main.decode("users.json")
+
     static var previews: some View {
-        ContentViewUsers(answer: user)
+        ContentViewUserCell(answer: answers.items[1])
     }
 }

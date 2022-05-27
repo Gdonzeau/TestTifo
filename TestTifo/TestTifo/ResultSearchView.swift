@@ -37,11 +37,11 @@ struct ResultSearch: View {
                         }
                         
                         ForEach(resultOfSearchUsers, id: \.login) { answer in
-                            ContentViewUsers(answer: answer)
+                            ContentViewUserCell(answer: answer)
                         }
                         
                         ForEach(resultOfSearchRepos, id: \.name) { answer in
-                            ContentViewRepos(answer: answer)
+                            ContentViewRepoCell(answer: answer)
                         }
                     } else {
                         Text("No answer")
@@ -197,7 +197,12 @@ struct ResultSearch: View {
 }
 
 struct ResultSearch_Previews: PreviewProvider {
+    var answers = 2
+    static var answersJson:DataReceivedRepository = Bundle.main.decode("repositories.json")
+    
+    @State private var resultOfSearch = answersJson.items
+    
     static var previews: some View {
-        ResultSearch(search: "Test", general: true, typeOfSearch: "commits")
+        ResultSearch(search: "Test", general: true, typeOfSearch: "repositories")
     }
 }

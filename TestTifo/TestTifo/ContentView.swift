@@ -20,8 +20,9 @@ struct ContentView: View {
                 let values = choices.map {$0.value}
                 
                 if search.count > 0 {
+                    
                     List(keys.indices, id: \.self) { index in
-                        
+                        if values[index].name != "Repositories" && values[index].name != "Specific repositories" {
                         NavigationLink {
                             ResultSearch(search: search, general: true, typeOfSearch: values[index].id)
                         } label: {
@@ -29,6 +30,7 @@ struct ContentView: View {
                                 .padding()
                         }
                     }
+                }
                 } else {
                     List {
                         HStack {

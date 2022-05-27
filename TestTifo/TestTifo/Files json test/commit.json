@@ -1,0 +1,98 @@
+{
+  "sha": "46250506651ea85b92e8bbf3b2ed93fdb9b7404b",
+  "node_id": "C_kwDOATHRqNoAKDQ2MjUwNTA2NjUxZWE4NWI5MmU4YmJmM2IyZWQ5M2ZkYjliNzQwNGI",
+  "commit": {
+    "author": {
+      "name": "Milos Kozak",
+      "email": "m.kozak@sysop.cz",
+      "date": "2022-01-07T18:33:05Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2022-01-07T18:33:05Z"
+    },
+    "message": "Change deduping interval",
+    "tree": {
+      "sha": "55e1566d0b8deab1d7dcdf5e1e4af14ceb8b0843",
+      "url": "https://api.github.com/repos/nightscout/cgm-remote-monitor/git/trees/55e1566d0b8deab1d7dcdf5e1e4af14ceb8b0843"
+    },
+    "url": "https://api.github.com/repos/nightscout/cgm-remote-monitor/git/commits/46250506651ea85b92e8bbf3b2ed93fdb9b7404b",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJh2IdhCRBK7hj4Ov3rIwAAYD4IAJjmcBW2cnDDAGxFMMlXI+zH\n7sg8YkF7zGEnhjUgavnggfoNc4pqAhqIHJAad2b94JXIOGyRyCtmh85ROONw4Si3\nswbAzlvTmegK6uWtN2wf5CO/5/84LthphKPhFMNtM0Ap5MXYpcTzZaDV4zKDotxV\nVsKGXL7j7JVQR08VISkFk5IRE+DBO+iyccH8CBpW6nBJxMzWJl3TaxxHuos0a0Nw\nxBYZV9EwMyQDgYifO83Tm5U7fCLmTsk6D6YrlU2yOhxPhrGj41KWCPklecbFRnHb\nXw9nhdbkJAZ7WdaxnJ/lBATOB3uYs6dwmXkpPFH9cIryPg/p1yXj+VP/rlQ5vsA=\n=G9im\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 55e1566d0b8deab1d7dcdf5e1e4af14ceb8b0843\nparent aca8d5ab492f1e356c36f340102044dc961d82aa\nauthor Milos Kozak <m.kozak@sysop.cz> 1641580385 +0100\ncommitter GitHub <noreply@github.com> 1641580385 +0100\n\nChange deduping interval"
+    }
+  },
+  "url": "https://api.github.com/repos/nightscout/cgm-remote-monitor/commits/46250506651ea85b92e8bbf3b2ed93fdb9b7404b",
+  "html_url": "https://github.com/nightscout/cgm-remote-monitor/commit/46250506651ea85b92e8bbf3b2ed93fdb9b7404b",
+  "comments_url": "https://api.github.com/repos/nightscout/cgm-remote-monitor/commits/46250506651ea85b92e8bbf3b2ed93fdb9b7404b/comments",
+  "author": {
+    "login": "MilosKozak",
+    "id": 11146458,
+    "node_id": "MDQ6VXNlcjExMTQ2NDU4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/11146458?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/MilosKozak",
+    "html_url": "https://github.com/MilosKozak",
+    "followers_url": "https://api.github.com/users/MilosKozak/followers",
+    "following_url": "https://api.github.com/users/MilosKozak/following{/other_user}",
+    "gists_url": "https://api.github.com/users/MilosKozak/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/MilosKozak/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/MilosKozak/subscriptions",
+    "organizations_url": "https://api.github.com/users/MilosKozak/orgs",
+    "repos_url": "https://api.github.com/users/MilosKozak/repos",
+    "events_url": "https://api.github.com/users/MilosKozak/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/MilosKozak/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "aca8d5ab492f1e356c36f340102044dc961d82aa",
+      "url": "https://api.github.com/repos/nightscout/cgm-remote-monitor/commits/aca8d5ab492f1e356c36f340102044dc961d82aa",
+      "html_url": "https://github.com/nightscout/cgm-remote-monitor/commit/aca8d5ab492f1e356c36f340102044dc961d82aa"
+    }
+  ],
+  "stats": {
+    "total": 2,
+    "additions": 1,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "9b1442fc163ee110ba9b964eee06de77a9994f06",
+      "filename": "lib/server/websocket.js",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/nightscout/cgm-remote-monitor/blob/46250506651ea85b92e8bbf3b2ed93fdb9b7404b/lib%2Fserver%2Fwebsocket.js",
+      "raw_url": "https://github.com/nightscout/cgm-remote-monitor/raw/46250506651ea85b92e8bbf3b2ed93fdb9b7404b/lib%2Fserver%2Fwebsocket.js",
+      "contents_url": "https://api.github.com/repos/nightscout/cgm-remote-monitor/contents/lib%2Fserver%2Fwebsocket.js?ref=46250506651ea85b92e8bbf3b2ed93fdb9b7404b",
+      "patch": "@@ -294,7 +294,7 @@ function init (env, ctx, server) {\n       socket.on('dbAdd', function dbAdd (data, callback) {\n         console.log(LOG_WS + 'dbAdd client ID: ', socket.client.id, ' data: ', data);\n         var collection = supportedCollections[data.collection];\n-        var maxtimediff = times.mins(1).msecs;\n+        var maxtimediff = times.secs(2).msecs;\n \n         var check = checkConditions('dbAdd', data);\n         if (check) {"
+    }
+  ]
+}

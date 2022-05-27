@@ -172,10 +172,11 @@ struct ContentViewUser: View {
 }
 
 struct ContentViewUser_Previews: PreviewProvider {
-    static let utilisateur = User(login: "Logan", id: 007, avatar_url: "www.photoDeMoi.png", url: "")
-    static let user = UserCompleted(login: "Logan", avatar_url: "Ici", name: "Mon nom", bio: "Ma vie")
-    
+    static var answers:DataReceivedUser = Bundle.main.decode("users.json")
+
     static var previews: some View {
-        ContentViewUser(userLogin: "")
+        if let login = answers.items[0].login {
+        ContentViewUser(userLogin: login)
+        }
     }
 }

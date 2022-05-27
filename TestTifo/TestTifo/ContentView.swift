@@ -10,45 +10,66 @@ import SwiftUI
 struct ContentView: View {
     @State private var search = ""
     
+    @AppStorage ("Repos") private var reposArray = [DataRepository]()
+    
     let choices: [String:Choice] = Bundle.main.decode("choices.json")
     @State private var indexSearch: IndexSearch = .repositories
     
     var body: some View {
         NavigationView {
-            VStack {
-                let keys = choices.map{$0.key}
-                let values = choices.map {$0.value}
-                
-                if search.count > 0 {
+            ScrollView {
+                VStack {
+                    let keys = choices.map{$0.key}
+                    let values = choices.map {$0.value}
                     
-                    List(keys.indices, id: \.self) { index in
-                        if values[index].name != "Commits" && values[index].name != "Specific repositories" {
-                        NavigationLink {
-                            ResultSearch(search: search, general: true, typeOfSearch: values[index].id)
-                        } label: {
-                            Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
-                                .padding()
+                    if search.count > 0 {
+                        
+                        List(keys.indices, id: \.self) { index in
+                            if values[index].name != "Commits" && values[index].name != "Specific repositories" {
+                                NavigationLink {
+                                    ResultSearch(search: search, general: true, typeOfSearch: values[index].id)
+                                } label: {
+                                    Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
+                                        .padding()
+                                }
+                            }
+                        }
+                    } else {
+                        List {
+                            HStack {
+                                Image(systemName: "arrow.down")
+                                Spacer()
+                                Text("Swipe down for a search")
+                                Spacer()
+                                Image(systemName: "arrow.down")
+                            }
                         }
                     }
-                }
-                } else {
-                    List {
-                        HStack {
-                            Image(systemName: "arrow.down")
-                            Spacer()
-                            Text("Swipe down for a search")
-                            Spacer()
-                            Image(systemName: "arrow.down")
-                        }
+                    //VStack {
+                    if reposArray.count > 0 {
+                        Text("Saved")
+                        
+                        //List {
+                        ForEach(reposArray) { repo in
+                            ContentViewRepoCell(answer: repo)
+                        }.onDelete(perform: removeRepo)
+                        //}
+                        //}
                     }
+                    Spacer()
+                    
                 }
+                .navigationTitle("GitHub fetcher")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationTitle("GitHub fetcher")
-            .navigationBarTitleDisplayMode(.inline)
         }
         .searchable(text: $search, prompt: "Enter your query")
         .preferredColorScheme(.light)
         .navigationViewStyle(StackNavigationViewStyle()) // Plus de problèmes de contraintes
+    }
+    
+    func removeRepo(at offsets: IndexSet) {
+        reposArray.remove(atOffsets: offsets)
     }
     
     func determineIndexSearch(index: String) -> IndexSearch {

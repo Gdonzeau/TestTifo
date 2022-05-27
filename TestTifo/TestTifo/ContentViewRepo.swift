@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentViewRepo: View {
-    //let adressURL: String
+    @AppStorage ("Repos") private var reposArray = [DataRepository]()
+    
     let dataRepos: DataRepository
     
     // Pour générer un message d'erreur
@@ -86,7 +87,15 @@ struct ContentViewRepo: View {
                 Spacer()
             }
             .padding()
+            .toolbar {
+                if !alreadySaved() {
+                    Button("Save") {
+                        reposArray.append(dataRepos)
+                    }
+                }
+            }
         }
+        
         .alert(errorTitle, isPresented: $showingError) {
             Button("OK", role: .cancel) { }
         } message: {
@@ -98,6 +107,14 @@ struct ContentViewRepo: View {
                 await loadRepositorysBranches(adress: adress)
             }
         }
+    }
+    func alreadySaved() -> Bool {
+        for repos in reposArray {
+            if repos.id == dataRepos.id {
+                return true
+            }
+        }
+        return false
     }
     
     func loadRepositorysBranches(adress: String) async {

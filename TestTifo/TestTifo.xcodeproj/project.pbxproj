@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F08FC9BE284169A700B92682 /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FC9BD284169A700B92682 /* Save.swift */; };
+		F08FC9C42841785500B92682 /* ExtensionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FC9C32841785500B92682 /* ExtensionArray.swift */; };
 		F0F41C80283D21720097F7A2 /* TestTifoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C7F283D21720097F7A2 /* TestTifoApp.swift */; };
 		F0F41C82283D21720097F7A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F41C81283D21720097F7A2 /* ContentView.swift */; };
 		F0F41C84283D21770097F7A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F41C83283D21770097F7A2 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F08FC9BD284169A700B92682 /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
+		F08FC9C32841785500B92682 /* ExtensionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionArray.swift; sourceTree = "<group>"; };
 		F0F41C7C283D21720097F7A2 /* TestTifo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTifo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F41C7F283D21720097F7A2 /* TestTifoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTifoApp.swift; sourceTree = "<group>"; };
 		F0F41C81283D21720097F7A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				F0F41C7F283D21720097F7A2 /* TestTifoApp.swift */,
 				F0F41CE32840D5690097F7A2 /* Color-Theme.swift */,
 				F0F41C81283D21720097F7A2 /* ContentView.swift */,
+				F08FC9C32841785500B92682 /* ExtensionArray.swift */,
 				F0F41CD9283FDCD80097F7A2 /* ContentViewInfo.swift */,
 				F0F41CCC283ED9440097F7A2 /* ResultSearchView.swift */,
 				F0F41CDD28401FF10097F7A2 /* ContentViewRepoCell.swift */,
@@ -184,6 +189,7 @@
 				F0F41CCA283ED85D0097F7A2 /* choices.json */,
 				F0F41CC6283ED7800097F7A2 /* Choice.swift */,
 				F0F41CC8283ED7F10097F7A2 /* Bundle-Decodable.swift */,
+				F08FC9BD284169A700B92682 /* Save.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -348,7 +354,9 @@
 				F0F41CDA283FDCD90097F7A2 /* ContentViewInfo.swift in Sources */,
 				F0F41CC9283ED7F10097F7A2 /* Bundle-Decodable.swift in Sources */,
 				F0F41CC7283ED7800097F7A2 /* Choice.swift in Sources */,
+				F08FC9BE284169A700B92682 /* Save.swift in Sources */,
 				F0F41CEC284101D90097F7A2 /* ContentViewBranch.swift in Sources */,
+				F08FC9C42841785500B92682 /* ExtensionArray.swift in Sources */,
 				F0F41CE22840C5CC0097F7A2 /* ContentViewRepo.swift in Sources */,
 				F0F41CE42840D5690097F7A2 /* Color-Theme.swift in Sources */,
 				F0F41CB1283D87820097F7A2 /* DataTemplate.swift in Sources */,

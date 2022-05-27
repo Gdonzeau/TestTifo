@@ -44,7 +44,7 @@ struct DataAuthor: Codable {
     var email: String
 }
 
-struct DataRepository: Codable {
+struct DataRepository: Codable, Identifiable {
     var id: Int
     var name: String
     var description: String?

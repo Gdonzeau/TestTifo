@@ -22,7 +22,7 @@ struct ContentView: View {
                 if search.count > 0 {
                     
                     List(keys.indices, id: \.self) { index in
-                        if values[index].name != "Repositories" && values[index].name != "Specific repositories" {
+                        if values[index].name != "Commits" && values[index].name != "Specific repositories" {
                         NavigationLink {
                             ResultSearch(search: search, general: true, typeOfSearch: values[index].id)
                         } label: {

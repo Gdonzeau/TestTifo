@@ -17,25 +17,25 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
-                    let keys = choices.map{$0.key}
-                    let values = choices.map {$0.value}
-                    
-                    if search.count > 0 {
-                        
-                        List(keys.indices, id: \.self) { index in
-                            if values[index].name != "Commits" && values[index].name != "Specific repositories" {
-                                NavigationLink {
-                                    ResultSearch(search: search, general: true, typeOfSearch: values[index].id)
-                                } label: {
-                                    Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
-                                        .padding()
+            VStack {
+                let keys = choices.map{$0.key}
+                let values = choices.map {$0.value}
+                
+                List {
+                    Section {
+                        if search.count > 0 {
+                            
+                            ForEach(keys.indices, id: \.self) { index in
+                                if values[index].name != "Commits" && values[index].name != "Specific repositories" {
+                                    NavigationLink {
+                                        ResultSearch(search: search, general: true, typeOfSearch: values[index].id)
+                                    } label: {
+                                        Text("\(Image(systemName: values[index].description)) \(values[index].name) avec \(search)")
+                                            .padding()
+                                    }
                                 }
                             }
-                        }
-                    } else {
-                        List {
+                        } else {
                             HStack {
                                 Image(systemName: "arrow.down")
                                 Spacer()
@@ -45,23 +45,27 @@ struct ContentView: View {
                             }
                         }
                     }
-                    //VStack {
-                    if reposArray.count > 0 {
-                        Text("Saved")
-                        
-                        //List {
-                        ForEach(reposArray) { repo in
-                            ContentViewRepoCell(answer: repo)
-                        }.onDelete(perform: removeRepo)
-                        //}
-                        //}
-                    }
-                    Spacer()
-                    
+                        Section {
+                            if reposArray.count > 0 {
+                                Text("Sauvegardes")
+                                    .font(.headline)
+                                    .multilineTextAlignment(.leading)
+                                
+                            } else {
+                                Text("Aucune sauvegarde")
+                                    .font(.headline)
+                                    .multilineTextAlignment(.leading)
+                            }
+                            ForEach(reposArray) { repo in
+                                ContentViewRepoCell(answer: repo)
+                            }
+                            .onDelete(perform: removeRepo)
+                        }
                 }
-                .navigationTitle("GitHub fetcher")
-                .navigationBarTitleDisplayMode(.inline)
+                Spacer()
             }
+            .navigationTitle("GitHub fetcher")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .searchable(text: $search, prompt: "Enter your query")
         .preferredColorScheme(.light)
@@ -92,6 +96,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ContentView()
     }

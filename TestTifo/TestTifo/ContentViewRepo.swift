@@ -70,6 +70,7 @@ struct ContentViewRepo: View {
                 Divider()
                 //.padding(.vertical)
                 LazyVStack (alignment: .leading) {
+                    
                     ForEach(branches, id: \.commit.sha) { branch in // Liste des branches du repo
                         NavigationLink {
                             ContentViewBranch(urlCommit: branch.commit.url) // Lien vers une branche
@@ -83,6 +84,7 @@ struct ContentViewRepo: View {
                             }
                         }
                     }
+                    
                 }
                 Spacer()
             }

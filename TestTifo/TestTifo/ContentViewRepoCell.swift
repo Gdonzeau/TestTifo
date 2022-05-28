@@ -42,7 +42,6 @@ struct ContentViewRepoCell: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                    //}
                     VStack (alignment: .leading){
                         if let name = answer.name {
                             Text(name)
@@ -78,7 +77,7 @@ struct ContentViewRepoCell: View {
 
 struct ContentViewRepos_Previews: PreviewProvider {
     static var answers:DataReceivedRepository = Bundle.main.decode("repositories.json")
-
+    
     static var previews: some View {
         ContentViewRepoCell(answer: answers.items[0])
     }

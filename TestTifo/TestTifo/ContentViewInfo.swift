@@ -22,7 +22,6 @@ struct ContentViewInfo: View {
                 .padding()
             Text(info)
                 .font(.bold(.headline)())
-                //.padding()
             Spacer()
         }
         .frame(maxWidth: .infinity)

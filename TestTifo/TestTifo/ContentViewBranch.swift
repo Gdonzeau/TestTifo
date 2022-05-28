@@ -26,27 +26,27 @@ struct ContentViewBranch: View {
                     Text("Auteur et Committer inconnu")
                 }
             } else {
-            VStack {
-                Text("Auteur")
-                if let author = commit.author {
-                    let user = User(login: author.login, avatar_url: author.avatar_url)
-                    ContentViewUserCell(answer: user)
-                } else {
-                    Text("Auteur inconnu")
+                VStack {
+                    Text("Auteur")
+                    if let author = commit.author {
+                        let user = User(login: author.login, avatar_url: author.avatar_url)
+                        ContentViewUserCell(answer: user)
+                    } else {
+                        Text("Auteur inconnu")
+                    }
                 }
-            }
-            .padding()
-            VStack {
-                Text("Committer")
-                if let committer = commit.committer {
-                    let user = User(login: committer.login, avatar_url: committer.avatar_url)
-                    ContentViewUserCell(answer: user)
-                } else {
-                    Text("Committer inconnu")
+                .padding()
+                VStack {
+                    Text("Committer")
+                    if let committer = commit.committer {
+                        let user = User(login: committer.login, avatar_url: committer.avatar_url)
+                        ContentViewUserCell(answer: user)
+                    } else {
+                        Text("Committer inconnu")
+                    }
                 }
+                .padding()
             }
-            .padding()
-        }
         }
         .navigationViewStyle(StackNavigationViewStyle()) // Plus de problèmes de contraintes
         .task {
@@ -67,9 +67,7 @@ struct ContentViewBranch: View {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let session = URLSession(configuration: .default)
-        
-        //task.cancel()
-        
+                
         let task = session.dataTask(with: request) { (data, response, error) in
             
             // Si la réponse est bonne...
@@ -82,7 +80,6 @@ struct ContentViewBranch: View {
                 alertError(title: "Mauvais retour", message: "Vérifiez votre connection internet." )
                 return
             }
-            // On adapte le bon type de format pour la réponse en fonction de ce qui a été demandé
             
             if let decodeResponse = try? JSONDecoder().decode(Commit.self, from: data) {
                 commit = decodeResponse

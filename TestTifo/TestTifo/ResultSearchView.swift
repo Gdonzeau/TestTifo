@@ -29,13 +29,13 @@ struct ResultSearch: View {
             LazyVStack {
                 if let answers = howManyAnswers {
                     if answers > 0 {
+                        /*
                         ForEach(resultsOfSearch, id: \.url) { answer in
-                            
                             Text(answer.repository.name)
                                 .padding()
                             Divider()
                         }
-                        
+                        */
                         ForEach(resultOfSearchUsers, id: \.login) { answer in
                             ContentViewUserCell(answer: answer)
                         }
@@ -141,9 +141,10 @@ struct ResultSearch: View {
             }
             // On adapte le bon type de format pour la réponse en fonction de ce qui a été demandé
             switch indexSearch {
-                
+              
             case .commits:
-                
+                print("Null")
+                /*
                 if let decodeResponse = try? JSONDecoder().decode(DataReceivedCommit.self, from: data) {
                     let numberOfAnswers = decodeResponse.total_count
                     let responses = decodeResponse.items
@@ -153,7 +154,7 @@ struct ResultSearch: View {
                 } else {
                     alertError(title: "Problème de données", message: "Le masque des données de commit ne correspond pas." )
                 }
-                
+                */
             case .repositories:
                 
                 if let decodeResponse = try? JSONDecoder().decode(DataReceivedRepository.self, from: data) {

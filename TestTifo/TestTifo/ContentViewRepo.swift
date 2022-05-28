@@ -21,10 +21,8 @@ struct ContentViewRepo: View {
     
     var body: some View {
         ScrollView {
-            //Text(dataRepos.)
             VStack (alignment: .leading){
                 HStack (spacing: 10){
-                    //if let photoOwner = dataRepos.owner?.avatar_url {
                     if let url = URL(string: dataRepos.owner?.avatar_url ?? "adresseFausse") {
                         AsyncImage(url: url) { image in
                             image.resizable()
@@ -65,10 +63,7 @@ struct ContentViewRepo: View {
                         .foregroundColor(.primary)
                     }
                 }
-                
-                // }
                 Divider()
-                //.padding(.vertical)
                 LazyVStack (alignment: .leading) {
                     
                     ForEach(branches, id: \.commit.sha) { branch in // Liste des branches du repo
@@ -84,7 +79,6 @@ struct ContentViewRepo: View {
                             }
                         }
                     }
-                    
                 }
                 Spacer()
             }
@@ -131,11 +125,8 @@ struct ContentViewRepo: View {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let session = URLSession(configuration: .default)
-        
-        //task.cancel()
-        
+                
         let task = session.dataTask(with: request) { (data, response, error) in
-            
             // Si la réponse est bonne...
             guard let data = data, error == nil else {
                 alertError(title: "No Data", message: "Absence de données.")
@@ -146,7 +137,6 @@ struct ContentViewRepo: View {
                 alertError(title: "Mauvais retour", message: "Vérifiez votre connection internet." )
                 return
             }
-            // On adapte le bon type de format pour la réponse en fonction de ce qui a été demandé
             
             if let decodeResponse = try? JSONDecoder().decode([Branch].self, from: data) {
                 branches = decodeResponse

@@ -74,7 +74,7 @@ struct ContentViewUser: View {
                 if let repos = user.public_repos {
                     NavigationLink {
                         if let login = user.login {
-                        ResultSearch(search: login, general: false, typeOfSearch: "specificRepositories")
+                            ResultSearch(search: login, general: false, typeOfSearch: "specificRepositories")
                         }
                         //Text("Repositories")
                     } label: {
@@ -138,9 +138,7 @@ struct ContentViewUser: View {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let session = URLSession(configuration: .default)
-        
-        //task.cancel()
-        
+                
         let task = session.dataTask(with: request) { (data, response, error) in
             
             // Si la réponse est bonne...
@@ -153,7 +151,6 @@ struct ContentViewUser: View {
                 alertError(title: "Mauvais retour", message: "Vérifiez votre connection internet." )
                 return
             }
-            // On adapte le bon type de format pour la réponse en fonction de ce qui a été demandé
             
             if let decodeResponse = try? JSONDecoder().decode(UserCompleted.self, from: data) {
                 user = decodeResponse
@@ -173,10 +170,10 @@ struct ContentViewUser: View {
 
 struct ContentViewUser_Previews: PreviewProvider {
     static var answers:DataReceivedUser = Bundle.main.decode("users.json")
-
+    
     static var previews: some View {
         if let login = answers.items[0].login {
-        ContentViewUser(userLogin: login)
+            ContentViewUser(userLogin: login)
         }
     }
 }
